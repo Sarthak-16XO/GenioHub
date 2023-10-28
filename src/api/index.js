@@ -29,7 +29,6 @@ export async function generateModelResponse(question) {
     }
 }
 
-
 export async function summarizeArticle(articleUrl) {
     const url = 'https://article-extractor-and-summarizer.p.rapidapi.com/summarize?url=' + articleUrl;
     const options = {

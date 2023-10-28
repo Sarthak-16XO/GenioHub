@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 function SignUpButton() {
   const clerk = useClerk();
   return (
-    <button className="sign-up-btn" onClick={() => clerk.openSignUp({})}>
-      Sign up
-    </button>
+    <button type="button" className="sign-up-btn text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={() => clerk.openSignUp({})}>Sign Up</button>
   );
 }
 
@@ -16,7 +14,7 @@ function SignInButton() {
   const clerk = useClerk();
 
   return (
-    <button className="sign-in-btn" onClick={() => clerk.openSignIn({})}>
+    <button className="sign-in-btn text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={() => clerk.openSignIn({})}>
       Sign in
     </button>
   );
@@ -36,19 +34,14 @@ function Header() {
           <nav className="">
             <SignedOut>
               <ul className="flex flex-row gap-10">
-                <li className="bg-purple-500 px-4 py-2 rounded-md text-white">
-                  <SignUpButton />
-                </li>
-
-                <li className="bg-purple-500 px-4 py-2 rounded-md text-white">
-                  <SignInButton />
-                </li>
+                <SignUpButton />
+                <SignInButton />
               </ul>
             </SignedOut>
 
             <SignedIn>
               <div className="flex flex-row items-center gap-8">
-                <Link to="/dashboard" className="bg-gradient-to-r from-blue-500 via-purple-600 to-orange-400 rounded-2xl py-2 px-3 text-white blur-0" >Get Started</Link>
+                <Link to="/dashboard" className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" >Get Started</Link>
                 <UserButton afterSignOutUrl="/" />
 
               </div>

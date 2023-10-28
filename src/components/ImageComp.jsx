@@ -24,7 +24,7 @@ function ImageComp() {
       setTimeout(() => {
         setImageUrl(articleSummaryy);
         setLoading(false);
-      }, 4000);
+      }, 6000);
 
       
     } catch (error) {
