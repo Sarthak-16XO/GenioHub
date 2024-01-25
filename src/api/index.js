@@ -21,8 +21,8 @@ export async function generateModelResponse(question) {
 
     try {
         const response = await fetch(url, options);
-        const result = await response.json(); // Parse as JSON
-        const responseOk = result.BOT
+        const result = await response.json();
+        const responseOk = result.result
         return responseOk;
     } catch (error) {
         console.error(error);
@@ -50,23 +50,24 @@ export async function summarizeArticle(articleUrl) {
 }
 
 export async function imageGeneration(imagePrompt) {
-
-    const url = 'https://open-ai21.p.rapidapi.com/texttoimage2';
+    const url = 'https://ai-image-generator3.p.rapidapi.com/generate';
     const options = {
         method: 'POST',
         headers: {
-            'content-type': 'application/x-www-form-urlencoded',
-            'X-RapidAPI-Key': '28bd6033c7msh74a4291b4702804p113be5jsn5e458e3b50d3',
-            'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
+            'content-type': 'application/json',
+            'X-RapidAPI-Key': 'dfc0b8e44amshb439e36c87c88aap1f3f36jsne2f7595e9e50',
+            'X-RapidAPI-Host': 'ai-image-generator3.p.rapidapi.com'
         },
-        body: new URLSearchParams({ text: imagePrompt })
+        body: JSON.stringify({
+            prompt: imagePrompt,
+            page: 1
+        })
     };
 
     try {
         const response = await fetch(url, options);
         const result = await response.json(); // Parse as JSON
-        const imageUrl = result.url;
-
+        const imageUrl = result.results.images[0];
         console.log(result);
         return imageUrl;
     } catch (error) {
@@ -75,7 +76,7 @@ export async function imageGeneration(imagePrompt) {
 }
 
 export async function codeGenerator(codePrompt) {
-    const url = 'https://open-ai21.p.rapidapi.com/askaicoder';
+    const url = 'https://open-ai21.p.rapidapi.com/conversationgpt35';
     const options = {
         method: 'POST',
         headers: {
@@ -83,16 +84,22 @@ export async function codeGenerator(codePrompt) {
             'X-RapidAPI-Key': '28bd6033c7msh74a4291b4702804p113be5jsn5e458e3b50d3',
             'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
         },
-
-        body: JSON.stringify({ message: codePrompt })
+        body: JSON.stringify({
+            messages: [
+                {
+                    role: 'user',
+                    content: codePrompt,
+                }
+            ],
+            web_access: false,
+            stream: false,
+        })
     };
 
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        const responseOk = result.RESULT
-        console.log(responseOk);
-
+        const responseOk = result.result;
         return responseOk;
     } catch (error) {
         console.error(error);

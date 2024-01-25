@@ -10,7 +10,7 @@ import { BiSolidSend } from "react-icons/bi";
 import user from "../assets/user.png";
 
 
-function Sender({ text, color }) {
+function Sender({ text }) {
     const [displayText, setDisplayText] = useState('');
     const typingDelay = 30;
 
@@ -95,18 +95,13 @@ function Reciever({ text, color }) {
     );
 }
 
-function Chat({ setPrompt, prompt, chats, setChats, loading, setIsLoading, color, onClickSend }) {
-    const messagesEndRef = useRef(null);
-    const [response, setResponse] = useState('');
-    const [isMobile, setIsMobile] = useState(false);
-    const [isResponseDisplayed, setIsResponseDisplayed] = useState(true);
-    const [prompts, setPrompts] = useState('');
-
-
+function Chat({ setPrompt, prompt, chats, loading, color, onClickSend }) {
+    
     const commonStyles = {
         display: "flex",
         flexDirection: "column",
         flexGrow: 1,
+        height: '40rem',
         backgroundColor: "transparent",
         borderRadius: "0.5rem",
         overflow: "hidden",
@@ -125,8 +120,8 @@ function Chat({ setPrompt, prompt, chats, setChats, loading, setIsLoading, color
                     display: "flex",
                     flexDirection: "column",
                     flexGrow: 1,
-                    height: "55rem",
-                    maxHeight: "60rem",
+                    height: "35rem",
+                    maxHeight: "40rem",
                     overflow: "auto"
                 }}
             >
@@ -243,7 +238,7 @@ function Preview() {
         zIndex: "9999"
     }
     return (
-        <div style={commonStyles} className="w-full h-[50rem] flex items-center p-10 ">
+        <div style={commonStyles} className="w-full h-[70rem] flex items-center p-10 ">
             <div style={desktopMenuStyles}>
                 <button
                     className=" shadow-xl"
@@ -262,10 +257,8 @@ function Preview() {
                         <p className="ml-1 text-slate-900">Reset Chat</p>
                     </div>
                 </button>
-
             </div>
             <Chat
-                className="h-[95%]"
                 prompt={prompt}
                 setPrompt={setPrompt}
                 setChats={setChats}

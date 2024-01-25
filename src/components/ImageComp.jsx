@@ -31,8 +31,6 @@ function ImageComp() {
       // Handle errors if necessary
       console.error("Error fetching user plan details", error);
     }
-    
-
   };
 
 
@@ -76,15 +74,13 @@ function ImageComp() {
                     className='block w-full rounded-md border border-gray-200 bg-white py-4 p-4  pl-10 pr-12 text-sm shadow-lg font-satoshi font-medium focus:border-black focus:outline-none focus:ring-0 peer'
                   />
                   <button
-                    type='submit'
-                   
+                    type='submit'                   
                     className='cursor-pointer hover:text-gray-700 absolute inset-y-0 right-0 my-1.5 mr-1.5 flex w-24 items-center justify-center rounded border border-gray-200 font-sans text-sm font-medium bg-teal-600 hover:bg-teal-500'
                   >
                     <p className="text-white">Submit</p>
                   </button>
                 </form>
             </div>
-
 
             {/* Display Result */}
             <div className='my-5  w-[75%] flex justify-center items-center'>
@@ -99,7 +95,6 @@ function ImageComp() {
                   <div className="flex   flex-row gap-5 text-slate-900 bg-white rounded-md shadow-lg shadow-indigo-500 drop-shadow-md font-medium p-2 m-5 ">
                         <img src={imageUrl} className="h-[26rem] w-[26rem] rounded-md" />
                   </div>
-
                 </>
               )
               }
