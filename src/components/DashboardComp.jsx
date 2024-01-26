@@ -40,7 +40,7 @@ const tools = [
 
 const DashboardComp = () => {
     return (
-        <div className='w-full bg-white'>
+        <div className='w-full bg-white p-8'>
             <div className="mb-8 space-y-4 mt-8">
                 <h2 className="text-2xl md:text-4xl font-bold text-center text-slate-900">
                     Explore the power of AI

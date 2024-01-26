@@ -31,105 +31,39 @@ function Sender({ text }) {
         return () => clearInterval(typingInterval);
     }, [text]);
 
-    const commonStyles = {
-        backgroundColor: 'white',
-        padding: '1.5rem',
-        borderRadius: '0.5rem',
-        maxWidth: '40rem',
-        fontSize: '1rem',
-        width: '25rem',
-    };
-
     return (
-        <div
-            className="flex space-x-3"
-            style={{
-                display: 'flex',
-                width: '100%',
-                columnGap: '0.05rem',
-            }}
-        >
-
+        <div className="flex space-x-3 mb-4 lg:mb-1">
             <img src={robo} className="h-[3.5rem] w-[3.5rem] rounded-md" />
-            <div className="shadow-lg">
-                <div style={commonStyles}>
-                    <p className="text-slate-900 text-lg">{displayText}</p>
+            <div className="shadow-lg rounded-lg">
+                <div className="w-fit bg-white shadow-lg  text-right text-slate-800 p-5 rounded-lg">
+                    <p className="text-slate-900 text-base text-left md:text-lg">{displayText}</p>
                 </div>
             </div>
         </div>
     );
 }
 
-function Reciever({ text, color }) {
+function Reciever({ text }) {
     return (
-        <div
-            style={{
-                display: "flex",
-                width: "100%",
-                marginTop: "5px",
-                columnGap: "0.75rem",
-                maxWidth: "20rem",
-                marginLeft: "auto",
-                justifyContent: "flex-end",
-                marginBottom: "1rem"
-            }}
-        >
-            <div>
-                <div
-                    style={{
-                        backgroundColor: color,
-                        color: "black",
-                        padding: "0.75rem",
-                        borderRadius: "0.5rem 0 0.5rem 0.5rem",
-                        marginTop: "0.5em",
-                        marginBottom: "0.5em"
-                    }}
-                >
-                    <p className="">{text}</p>
-                </div>
+        <div className="flex ml-auto justify-end mb-4 lg:mb-1 gap-x-5 items-center">
+            <div className="w-fit bg-white shadow-lg text-right text-slate-800 p-5 rounded-lg">
+                <p className="">{text}</p>
             </div>
-
-            <img src={user} className="h-16 w-16 mr-3 rounded-md" alt="Flowbite Logo" />
-
-        </div>
+            <img src={user} className="h-10 w-10 md:h-16 md:w-16 mr-3 rounded-md" alt="Logo" />
+        </div >
     );
 }
 
 function Chat({ setPrompt, prompt, chats, loading, color, onClickSend }) {
-    
-    const commonStyles = {
-        display: "flex",
-        flexDirection: "column",
-        flexGrow: 1,
-        height: '40rem',
-        backgroundColor: "transparent",
-        borderRadius: "0.5rem",
-        overflow: "hidden",
-        marginTop: "1rem",
-        width: "100%",
-        maxWidth: "70rem",
-    };
-
 
     return (
-        <div style={commonStyles}>
-            <div
-                className=""
-                id="style-4"
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    flexGrow: 1,
-                    height: "35rem",
-                    maxHeight: "40rem",
-                    overflow: "auto"
-                }}
-            >
+        <div className="flex flex-col w-[100%] mt-5  md:p-10 mb-5 h-[48rem]">
+            <div className="flex flex-col overflow-auto">
                 <Sender className="text-slate-800" text={"Hi there! I'm your virtual assistant. How can I assist you today?"} color={color} />
 
                 {chats.map((chat, index) => (
-                    <div key={index}>
-                        <Reciever text={chat.message} color={color} /> {/* Pass chat.message as text */}
+                    <div  key={index}>
+                        <Reciever text={chat.message} color={color} />
                         <Sender text={chat.response} color={color} />
                     </div>
                 ))}
@@ -146,15 +80,7 @@ function Chat({ setPrompt, prompt, chats, loading, color, onClickSend }) {
                     </div>
                 )}
             </div>
-            <div
-                style={{
-                    marginTop: "4.5rem",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    width: "100%",
-                }}
-            >
+            <div className="mt-5 w-[100%]">
                 <div className="relative m-10">
                     <div className="flex w-full items-center">
                         <div className="overflow-hidden flex flex-col w-full flex-grow relative border border-black/10 gizmo:border-black/20  rounded-xl gizmo:rounded-2xl shadow-xs  bg-white gizmo:dark:bg-gray-800 gizmo:shadow-[0_0_0_2px_rgba(255,255,255,0.95)] gizmo:dark:shadow-[0_0_0_2px_rgba(52,53,65,0.95)]">
@@ -227,32 +153,17 @@ function Preview() {
         display: "flex",
         flexDirection: "column",
         gap: "0.5rem",
-        height: "35rem",
+        height: "55rem",
     };
 
-    const desktopMenuStyles = {
-        width: "64rem",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "flex-end",
-        zIndex: "9999"
-    }
     return (
-        <div style={commonStyles} className="w-full h-[70rem] flex items-center p-10 ">
-            <div style={desktopMenuStyles}>
+        <div style={commonStyles} className="w-full flex items-center lg:p-8 ">
+            <div className="w-screen lg:w-[64rem] flex flex-row justify-end">
                 <button
-                    className=" shadow-xl"
-                    style={{
-                        color: "white",
-                        borderRadius: "1rem",
-                        width: "7rem",
-                        marginTop: '2.25rem',
-                        height: "2.5rem",
-                        backgroundColor: "rgba(1,1,1,0.1)",
-                    }}
+                    className="shadow-xl w-36 rounded-lg mt-4 py-2 px-2 text-white"
                     onClick={resetChat}
                 >
-                    <div style={{ display: 'flex', gap: "4px", alignItems: 'center', color: 'black' }}>
+                    <div className="flex gap-4  items-center text-slate-800">
                         <RxReset className="ml-1" />
                         <p className="ml-1 text-slate-900">Reset Chat</p>
                     </div>
