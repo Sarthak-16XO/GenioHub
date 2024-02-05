@@ -12,7 +12,6 @@ function Summarizer() {
     const [copied, setCopied] = useState("");
     const [loading, setLoading] = useState(false);
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -43,16 +42,16 @@ function Summarizer() {
     };
 
     return (
-        <div className="w-screen bg-white h-[60rem]">
+        <div className="w-screen bg-white h-fit">
             <div className="flex">
-                <div className="w-[20%] h-[60rem]">
+                <div className="hidden lg:block lg:w-[20%] lg:h-[60rem]">
                     <Siderbar />
                 </div>
-                <div className="w-[80%]">
+                <div className="w-full lg:w-[80%]">
                     <section className='mt-16 w-full flex flex-col items-center justify-center gap-4 '
 
                     >
-                        <div className='main'>
+                        <div className='main hidden lg:block'>
                             <div className='gradient' />
                         </div>
                         <h1 className='text-5xl -mt-8 font-extrabold leading-[1.15] text-black sm:text-6xl text-center'>
@@ -65,14 +64,9 @@ function Summarizer() {
                         </h2>
                         <div className='flex flex-col w-full gap-2'>
                             <form
-                                className='relative w-[80%] pl-[10%] mt-10 ml-14 flex  items-center'
+                                className='relative w-[80%] mx-auto lg:pl-[10%] mt-10 lg:ml-14 flex  items-center'
                                 onSubmit={handleSubmit}
                             >
-                                <img
-                                    src={linkIcon}
-                                    alt='link-icon'
-                                    className='absolute left-0 my-2 ml-[8rem] w-5'
-                                />
                                 <input
                                     type='url'
                                     placeholder='Paste the article link'
@@ -80,7 +74,7 @@ function Summarizer() {
                                     onChange={(e) => setArticleUrl(e.target.value)}
                                     onKeyDown={handleKeyDown}
                                     required
-                                    className='block w-full rounded-md border border-gray-200 bg-white py-4 p-4  pl-10 pr-12 text-sm shadow-lg font-satoshi font-medium focus:border-black focus:outline-none focus:ring-0 peer'
+                                    className='block w-full rounded-md border border-gray-200 bg-white py-4 p-4  text-sm shadow-lg font-satoshi font-medium focus:border-black focus:outline-none focus:ring-0 peer'
                                 />
                                 <button
                                     type='submit'
@@ -92,7 +86,7 @@ function Summarizer() {
                         </div>
 
                         {/* Display Result */}
-                        <div className='my-5 ml-48  w-[85%] flex justify-center '>
+                        <div className='mx-auto w-[24rem] lg:w-[58rem] flex justify-center mb-14'>
                             {loading && (
                                 <div className="flex items-center align-middle mt-4">
                                     <Loader />
@@ -100,15 +94,18 @@ function Summarizer() {
                             )}
                             {articleSummary && (
                                 <div className="flex  flex-col items-center bg-white rounded-md shadow-lg shadow-indigo-500 drop-shadow-md ">
-                                    <h2 className="ml-10 mt-5 text-purple-600 text-lg font-semibold">Article Summary</h2>
+                                    <div className="flex flex-end">
+                                        <h2 className="ml-10 mt-5 text-purple-600 text-lg font-semibold">Article Summary</h2>
+                                        <div className="absolute right-5 top-5">
+                                            <img src={copy} onClick={handleCopy} className="text-white cursor-pointer h-6 w-6 z-20" />
+                                        </div>
+                                    </div>
                                     <div className="flex flex-row gap-5 text-slate-900 font-medium p-4 m-4">
                                         <p className="text-justify">{articleSummary}</p>
-                                        <img src={copy} onClick={handleCopy} className="text-white cursor-pointer h-6 w-6 z-20" />
                                     </div>
                                 </div>
                             )
                             }
-                            <div className="p-24 "></div>
                         </div>
                     </section>
                 </div>

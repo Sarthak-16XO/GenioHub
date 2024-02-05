@@ -112,7 +112,6 @@ function Chat({ setPrompt, prompt, chats, loading, color, onClickSend }) {
     );
 }
 
-
 function Preview() {
     const [prompt, setPrompt] = useState("");
     const color = "white";
@@ -182,6 +181,5 @@ function Preview() {
         </div>
     );
 }
-
 
 export default Preview;

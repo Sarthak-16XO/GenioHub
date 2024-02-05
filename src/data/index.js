@@ -13,28 +13,28 @@ export const keyFeatures = {
       icon: keyFeature1,
       title: 'Virtual Assistant',
       description:
-        'Craft dynamic and engaging conversations with users, providing a seamless virtual assistant experience for enhanced user satisfaction.',
+        "GenioHub's chatbot exhibits natural language understanding and engages users in personalized and interactive conversations."
     },
     {
       id: 2,
       icon: keyFeature2,
       title: 'AI Image Generation',
       description:
-        'Take control of your answerwise projects by easily training and retraining models to adapt to evolving needs and changing environments.',
+        'The image generation service within GenioHub consistently produces high-quality and visually appealing images.',
     },
     {
       id: 3,
       icon: keyFeature3,
       title: 'Article Summarization',
       description:
-        'Revolutionize information retrieval with answerwise generative AI, delivering precise and contextually accurate search results.',
+        "GenioHub's article summarization service efficiently offers concise and coherent summaries, enhancing information retrieval."
     },
     {
       id: 4,
       icon: keyFeature4,
       title: 'AI Code Generation',
       description:
-        "AnswerWise can help you reduce support costs by providing users with a self-service option for finding answers to their questions.",
+        "GenioHub offers reliable and accurate code generation. Highlights the practical utility for developers seeking efficient code assistance.",
     },
   ],
 };

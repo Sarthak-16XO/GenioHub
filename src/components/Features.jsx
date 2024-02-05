@@ -13,7 +13,7 @@ const KeyFeatures = () => {
                     <p className='w-[90%] lg:w-[35rem] text-center text-lg text-slate-200' >{slogan}</p>
                 </div>
 
-                <div className='grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+                <div className='grid grid-flow-row grid-cols-1 gap-y-5 md:grid-cols-2 lg:grid-cols-4'>
                     {features.map((item) => (
                         <Fade direction='up' triggerOnce delay={100 * item.id} key={`key-feature--key${item.id}`}>
                             <div className='flex flex-col items-center gap-6'>

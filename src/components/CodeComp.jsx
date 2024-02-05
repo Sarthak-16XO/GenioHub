@@ -43,29 +43,27 @@ function CodeComp() {
   };
 
   return (
-    <div className="w-screen bg-white h-screen">
+    <div className="w-screen bg-white h-fit">
       <div className="flex">
-        <div className="w-[20%]">
+        <div className="hidden lg:block lg:w-[20%]">
           <Siderbar />
         </div>
-        <div className="w-[80%]">
-          <section className='mt-16 w-full flex flex-col items-center justify-center gap-4 '
-
-          >
-            <div className='main'>
+        <div className="w-full lg:w-[80%]">
+          <section className='mt-16 w-full flex flex-col items-center justify-center gap-4'>
+            <div className='main hidden lg:block'>
               <div className='gradient' />
             </div>
             <h1 className='text-5xl -mt-8 font-extrabold leading-[1.15] text-black sm:text-6xl text-center'>
               Generate Code and Fix Errors with  <br className='max-md:hidden' />
               <span className='mt-4 bg-gradient-to-r from-blue-500 via-emerald-600 to-lime-500 bg-clip-text text-transparent'>OpenAI Codex</span>
             </h1>
-            <h2 className='mt-5 text-lg text-gray-600 sm:text-xl text-center max-w-2xl'>
+            <h2 className='mt-5 text-lg px-5 text-gray-600 sm:text-xl text-center max-w-2xl'>
               Streamline your coding process with Code Wizard, an open-source tool
               that helps you generate code and fix common errors.
             </h2>
             <div className='flex flex-col w-full gap-2'>
               <form
-                className='relative w-[80%] pl-[10%] mt-10 ml-14 flex  items-center'
+                className='relative w-[90%] lg:w-[80%]  mt-10 mx-auto flex  items-center'
                 onSubmit={handleSubmit}
               >
                 <input
@@ -74,7 +72,7 @@ function CodeComp() {
                   value={codePrompt}
                   onChange={(e) => setcodePrompt(e.target.value)}
                   required
-                  className='block w-full rounded-md border border-gray-200 bg-white py-4 p-4  pl-10 pr-12 text-sm shadow-lg font-satoshi font-medium focus:border-black focus:outline-none focus:ring-0 peer'
+                  className='block w-full rounded-md border border-gray-200 bg-white py-4 p-4 text-sm shadow-lg font-satoshi font-medium focus:border-black focus:outline-none focus:ring-0 peer'
                 />
                 <button
                   type='submit'
@@ -99,7 +97,6 @@ function CodeComp() {
                     <pre className="whitespace-pre-wrap">{codeResult}</pre>
                     <img src={copy} onClick={handleCopy} className="text-white cursor-pointer h-6 w-6 z-20" />
                   </div>
-
                 </>
               )
               }

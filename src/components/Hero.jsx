@@ -9,10 +9,7 @@ const Hero = () => {
             <div className="flex flex-col lg:flex-row z-50 max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto place-self-center lg:col-span-7"
                 >
-                    <div className="main">
-                        <div className="gradient -z-20"></div>
-                    </div>
-                    <div className="z-50">
+                    <div className="mt-24 md:mt-10 lg:mt-0">
                         <h1 className="max-w-2xl mb-4 text-center md:text-left text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"><span className="bg-gradient-to-r from-purple-500 via-orange-600 to-amber-400 bg-clip-text text-transparent">GenioHub</span>: Elevate Your Business with Cutting-Edge AI Solutions</h1>
                         <p className="max-w-2xl text-center md:text-left mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-lg dark:text-gray-400">Empowering Enterprises with Intelligent AI Services for Smarter Operations and Enhanced Customer Experiences..</p>
                         <Link to="/dashboard" className="cursor-pointer hidden md:block">

@@ -8,15 +8,13 @@ import { Code } from 'lucide-react';
 import { Link } from 'react-router-dom'; // Add this line
 
 function Siderbar() {
-  
-
   return (
     <aside
       id="sidebar-multi-level-sidebar"
-      className="w-full h-screen sticky top-0 transition-transform -translate-x-full sm:translate-x-0"
+      className="w-full  sticky top-0 transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar"
     >
-      <div className="h-[60rem] px-3 py-4 overflow-y-auto bg-[#eef3f7] dark:bg-gray-900 rounded-tr-lg">
+      <div className="h-[70rem] px-3 py-4 overflow-y-auto bg-[#eef3f7] dark:bg-gray-900 rounded-tr-lg">
         <ul className="space-y-4 mt-4">
           <li className="p-2 dark:hover:bg-gray-700 rounded-md">
             <Link

@@ -110,6 +110,7 @@ function Header() {
                     leave="transition ease-in duration-75 transform"
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
+                    className="absolute bg-slate-900 w-full"
                 >
                     {(ref) => (
                         <div className="md:hidden" id="mobile-menu">
